@@ -36,9 +36,9 @@ jobs:
       - name: Build
         run: |
           if [[ "$GITHUB_REPOSITORY" == "nus-cs2103de-AY2425S1/landing-page" ]]; then
-            npm run build -- --base=/landing-page/
+            VITE_BASE=/landing-page/ npm run build
           else
-            npm run build -- --base=/
+            VITE_BASE=/ npm run build
           fi
         env:
           NODE_ENV: production
