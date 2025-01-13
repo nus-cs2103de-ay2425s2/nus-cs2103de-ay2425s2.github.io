@@ -18,7 +18,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ github.event.repository.html_url }}
+      url: ${{ github.repository == 'nus-cs2103de-AY2425S1/nus-cs2103de-AY2425S1.github.io' && 'https://nus-cs2103de-ay2425s1.github.io' || format('https://nus-cs2103de-ay2425s1.github.io/{0}', github.event.repository.name) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,11 +35,13 @@ jobs:
 
       - name: Build
         run: |
-          if [[ "$GITHUB_REPOSITORY" == *"/landing-page" ]]; then
+          if [[ "$GITHUB_REPOSITORY" == "nus-cs2103de-AY2425S1/landing-page" ]]; then
             npm run build -- --base=/landing-page/
           else
             npm run build -- --base=/
           fi
+        env:
+          NODE_ENV: production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
