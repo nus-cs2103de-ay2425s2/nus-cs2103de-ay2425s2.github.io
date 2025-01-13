@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100vh;
+  width: 100vw;
+  font-family: "PT Sans", sans-serif;
+  color-scheme: dark;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-size-adjust: 100%;
+  word-break: break-word;
+}
+
+@layer components {
+  /* Title hover effects - multiple options */
+  .title-hover-1 {
+    @apply relative transition-all duration-500 ease-out cursor-pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .title-hover-1:hover {
+    @apply transform scale-[1.02];
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.02em;
+  }
+
+  .title-hover-2 {
+    @apply relative cursor-pointer;
+  }
+
+  .title-hover-2::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-500 ease-out;
+    background: linear-gradient(90deg, currentColor, transparent);
+  }
+
+  .title-hover-2:hover::after {
+    @apply w-full;
+  }
+
+  .title-hover-3 {
+    @apply relative cursor-pointer transition-all duration-300;
+  }
+
+  .title-hover-3:hover {
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Previous scale hover effect */
+  .scale-hover {
+    @apply relative transition-all duration-500 ease-out cursor-pointer;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0);
+  }
+
+  .scale-hover::before {
+    @apply content-[''] absolute top-1/2 left-1/2 w-0 h-0 -z-10 opacity-0 
+           transition-all duration-500 ease-out;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  }
+
+  .scale-hover:hover {
+    @apply transform scale-[1.02];
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .scale-hover:hover::before {
+    @apply w-[150%] h-[150%] opacity-100;
+  }
+
+  /* Navigation section styling */
+  .nav-section {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .nav-section::before {
+    @apply content-[''] absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  }
+
+  .nav-section:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Elegant link hover effect */
+  .nav-link {
+    @apply relative flex items-center transition-all duration-300 ease-out px-2 py-1.5 rounded-l-md overflow-hidden;
+    background: linear-gradient(90deg, transparent 0%, transparent 100%);
+  }
+
+  .nav-link:hover {
+    @apply transform -translate-x-1;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute inset-0 opacity-0 transition-opacity duration-300 rounded-l-md;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+  }
+
+  .nav-link:hover::after {
+    @apply opacity-100;
+  }
+
+  .nav-link::before {
+    @apply content-[''] absolute left-0 w-0.5 h-0 bg-white/30 transition-all duration-300 rounded-l;
+  }
+
+  .nav-link:hover::before {
+    @apply h-full;
+  }
+
+  /* Subtle text effects */
+  .text-glow {
+    @apply transition-all duration-300;
+  }
+
+  .text-glow:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  }
+
+  /* Section headers */
+  .section-header {
+    @apply text-white/70 font-semibold text-sm uppercase tracking-wider mb-1;
+  }
+}
