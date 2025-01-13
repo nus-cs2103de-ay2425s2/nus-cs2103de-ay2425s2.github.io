@@ -34,7 +34,12 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          if [[ "$GITHUB_REPOSITORY" == *"/landing-page" ]]; then
+            npm run build -- --base=/landing-page/
+          else
+            npm run build -- --base=/
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
