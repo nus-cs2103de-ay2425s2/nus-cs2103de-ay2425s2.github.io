@@ -37,7 +37,7 @@ function App() {
                 iP Details
               </a>
               <a href="#" className="nav-link">
-                iP progress dashboard
+                iP Progress Dashboard
               </a>
               <a href="#" className="nav-link">
                 iP Code Dashboard
@@ -53,7 +53,7 @@ function App() {
                 tP Details
               </a>
               <a href="#" className="nav-link">
-                tP progress dashboard
+                tP Progress Dashboard
               </a>
               <a href="#" className="nav-link">
                 tP Code Dashboard
