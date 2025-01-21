@@ -42,6 +42,9 @@ const App: React.FC = () => {
               <a href="https://nus-cs2103de-ay2425s2.github.io/ip-code-dashboard/" className="nav-link" target="_blank" rel="noopener noreferrer">
                 iP Code Dashboard
               </a>
+              <a href="https://github.com/nus-cs2103de-ay2425s2/duke" className="nav-link" target="_blank" rel="noopener noreferrer">
+                iP Upstream
+              </a>
             </div>
           </div>
 
@@ -57,6 +60,9 @@ const App: React.FC = () => {
               </a>
               <a href="#" className="nav-link">
                 tP Code Dashboard
+              </a>
+              <a href="#" className="nav-link">
+                tP Upstream
               </a>
             </div>
           </div>
